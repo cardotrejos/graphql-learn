@@ -10,7 +10,9 @@ const SongSchema = new Schema({
   lyrics: [{
     type: Schema.Types.ObjectId,
     ref: 'lyric'
-  }]
+  },]
+}, 
+{usePushEach: true // Se debio agregar para que MongoDB pudiera hacer $push
 });
 
 SongSchema.statics.addLyric = function(id, content) {
